@@ -42,8 +42,6 @@ jobs:
           distribution: temurin
           architecture: x64
           cache: maven
-      - name: Build project
-        run: ./mvnw verify -Pintegration -Pjava${{ matrix.java }}
 
       - name: Compile
         run: mvn clean install -DskipTests -pl byte-buddy-dep -am

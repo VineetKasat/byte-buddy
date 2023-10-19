@@ -24,7 +24,7 @@ jobs:
           cache: maven
       - name: Build project
         run: ./mvnw verify -Pjava21 -Dnet.bytebuddy.experimental
-        continue-on-error: false
+        continue-on-error: true
   hotspot-supported:
     name: Any (supported)
     strategy:

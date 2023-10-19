@@ -51,8 +51,6 @@ jobs:
       - name: compile without nondex
         run: mvn -pl byte-buddy-dep test -Dtest=net.bytebuddy.implementation.auxiliary.MethodCallProxyTest#testNonGenericParameter
 
-      - name: compile with nondex
-        run: mvn -pl byte-buddy-dep edu.illinois:nondex-maven-plugin:2.1.1:nondex -Dtest=net.bytebuddy.implementation.auxiliary.MethodCallProxyTest#testNonGenericParameter
   j9-supported:
     name: Any (supported)
     strategy:

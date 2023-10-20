@@ -19,8 +19,8 @@ jobs:
       - name: Compile
         run: mvn clean install -DskipTests -pl byte-buddy-dep -am
 
-      - name: compile without nondex
+      - name: compile with nondex
         run: mvn -pl byte-buddy-dep test -Dtest=net.bytebuddy.implementation.auxiliary.MethodCallProxyTest#testNonGenericParameter
 
-      - name: compile with nondex
+      - name: compile without nondex
         run: mvn -pl byte-buddy-dep edu.illinois:nondex-maven-plugin:2.1.1:nondex -Dtest=net.bytebuddy.implementation.auxiliary.MethodCallProxyT>

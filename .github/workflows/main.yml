@@ -14,9 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2 # v3.5.3
         with:
-          java-version: 11-ea
-          distribution: zulu
-          cache: maven
+          java-version: 11
+          distribution: 'adopt'
 
       - name: Compile
         run: mvn clean install -DskipTests -pl byte-buddy-dep -am

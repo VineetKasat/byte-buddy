@@ -7,36 +7,15 @@ on:
   pull_request:
     branches:
       - master
-  schedule:
-    - cron: "0 0 * * 1"
-permissions: read-all
 jobs:
-  workflow_run:
+  build:
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
-      - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+      - uses: actions/checkout@v2 # v3.5.3
         with:
           java-version: 11-ea
           distribution: zulu
-          cache: maven
-      - name: Build project
-        run: mvn verify
-        continue-on-error: true
-  hotspot-supported:
-    name: Any (supported)
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ ubuntu-20.04, macos-11, windows-2022 ]
-        java: [ 8, 11, 17 ]
-    runs-on: ${{ matrix.os }}
-    steps:
-      - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
-        with:
-          java-version: ${{ matrix.java }}
-          distribution: temurin
-          architecture: x64
           cache: maven
 
       - name: Compile

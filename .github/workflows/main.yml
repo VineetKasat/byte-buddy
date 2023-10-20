@@ -11,7 +11,7 @@ on:
     - cron: "0 0 * * 1"
 permissions: read-all
 jobs:
-  build:
+  workflow_run:
     runs-on: ubuntu-latest
     needs: [ extended ]
     continue-on-error: true

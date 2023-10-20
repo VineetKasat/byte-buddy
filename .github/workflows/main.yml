@@ -1,3 +1,4 @@
+
 name: CI
 on:
   push:
@@ -23,7 +24,7 @@ jobs:
           distribution: zulu
           cache: maven
       - name: Build project
-        run: ./mvnw verify -Pjava21 -Dnet.bytebuddy.experimental
+        run: mvn verify 
         continue-on-error: true
   hotspot-supported:
     name: Any (supported)
@@ -67,7 +68,7 @@ jobs:
           architecture: x64
           cache: maven
       - name: Build project
-        run: ./mvnw verify -Pintegration -Pjava${{ matrix.java }}
+        run: mvn verify 
   hotspot-unsupported:
     name: HotSpot (unsupported)
     strategy:
@@ -85,7 +86,7 @@ jobs:
           architecture: x64
           cache: maven
       - name: Build project
-        run: ./mvnw verify -Pintegration -Pjava${{ matrix.java }}
+        run: mvn verify
   hotspot-32:
     name: HotSpot (32 bit)
     strategy:
@@ -104,7 +105,7 @@ jobs:
           architecture: x86
           cache: maven
       - name: Build project
-        run: ./mvnw verify -Pintegration -Pjava${{ matrix.java }}
+        run: mvn verify
   hotspot-legacy:
     name: HotSpot (legacy)
     strategy:
